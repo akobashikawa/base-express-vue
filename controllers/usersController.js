@@ -11,9 +11,16 @@ const usersController = {
     },
 
     findAll() {
-        return (req, res, next) => {
-            const result = this.usersService.findAll();
-            res.json(result);
+        return async (req, res, next) => {
+            try {
+                const result = await this.usersService.findAll();
+                res.json(result);
+            } catch (error) {
+                console.log(error);
+                res.status(500).json({
+                    message: error.message
+                });
+            }
         };
     },
 };
