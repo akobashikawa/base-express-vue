@@ -13,5 +13,6 @@ router.get('/', usersController.findAll());
 router.get('/:id', usersController.find());
 router.post('/', usersController.add());
 router.put('/:id', usersController.update());
+router.delete('/:id', usersController.delete());
 
 module.exports = router;

@@ -63,6 +63,14 @@ const sqlite3Service = {
         const params = [];
         return this.query(sql, params);
     },
+
+    delete(id) {
+        const sql = `DELETE FROM Users
+        WHERE id=${id}
+        `;
+        const params = [];
+        return this.query(sql, params);
+    },
 };
 
 module.exports = sqlite3Service;

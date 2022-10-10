@@ -25,6 +25,10 @@ const usersService = {
     update(id, data) {
         return this.db.update(id, data);
     },
+
+    delete(id) {
+        return this.db.delete(id);
+    },
 };
 
 module.exports = usersService;
