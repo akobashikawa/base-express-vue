@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const db = require('../services/sqlite3Service').create();
+const db = require('../services/usersServiceSqlite3').create();
 const usersService = require('../services/usersService').create({
   db
 });
