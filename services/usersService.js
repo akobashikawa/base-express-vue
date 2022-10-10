@@ -10,50 +10,20 @@ const usersService = {
         return obj;
     },
 
-    query(sql, params) {
-        return new Promise((resolve, reject) => {
-            this.db.all(sql, params, (err, rows) => {
-                if (err) {
-                    reject(err);
-                } else {
-                    resolve(rows);
-                }
-            });
-        });
-    },
-
     findAll() {
-        var sql = "select * from Users";
-        var params = [];
-        return this.query(sql, params);
+        return this.db.findAll();
     },
 
     findById(id) {
-        const sql = `SELECT * FROM Users WHERE id=${id}`;
-        const params = [];
-        return this.query(sql, params);
+        return this.db.findById(id);
     },
 
     add(data) {
-        const username = data.username;
-        const publickey = data.publickey;
-        const sql = `INSERT INTO Users
-        (username, publickey)
-        VALUES('${username}', '${publickey}');
-        `;
-        const params = [];
-        return this.query(sql, params);
+        return this.db.add(data);
     },
 
     update(id, data) {
-        const username = data.username;
-        const publickey = data.publickey;
-        const sql = `UPDATE Users
-        SET username='${username}', publickey='${publickey}'
-        WHERE id=${id}
-        `;
-        const params = [];
-        return this.query(sql, params);
+        return this.db.update(id, data);
     },
 };
 
